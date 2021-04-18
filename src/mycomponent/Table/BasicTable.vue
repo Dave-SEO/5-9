@@ -12,7 +12,6 @@
 <script lang='ts'>
 import {defineComponent, PropType} from 'vue'
 import {Table} from 'ant-design-vue'
-import { SmileOutlined, DownOutlined } from '@ant-design/icons-vue';
 export default defineComponent({
   props:{
     dataSource: {
@@ -27,9 +26,7 @@ export default defineComponent({
     }
   },
   components: {
-    Table,
-    SmileOutlined,
-    DownOutlined,
+    Table
   }
 })
 </script>
