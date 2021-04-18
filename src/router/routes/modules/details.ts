@@ -4,21 +4,21 @@ import type { AppRouteModule } from '/@/router/types';
 
 
 const dashboard: AppRouteModule = {
-  path: '/about',
-  name: 'About',
+  path: '/details',
+  name: 'details',
   component: LAYOUT,
-  redirect: '/about/index',
+  redirect: '/details/index',
   meta: {
     icon: 'simple-icons:about-dot-me',
-    title: t('routes.dashboard.about'),
+    title: t('routes.dashboard.details'),
   },
   children: [
     {
       path: 'index',
-      name: 'AboutPage',
-      component: () => import('/@/views/sys/about/index.vue'),
+      name: 'details',
+      component: () => import('/@/views/details/index.vue'),
       meta: {
-        title: t('routes.dashboard.about'),
+        title: t('routes.dashboard.details'),
         icon: 'simple-icons:about-dot-me',
       },
     },

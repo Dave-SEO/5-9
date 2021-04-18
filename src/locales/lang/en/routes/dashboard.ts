@@ -3,4 +3,5 @@ export default {
   about: 'About',
   workbench: 'Workbench',
   analysis: 'Analysis',
+  details: '业务员信息'
 };
