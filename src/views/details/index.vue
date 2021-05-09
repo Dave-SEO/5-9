@@ -5,6 +5,24 @@
       <Button type="primary" class="marginright">新增业账号</Button>
       <Button type="primary" class="marginright">上传业务员二维码</Button>
     </div>
+    <br>
+    <br>
+    <Mixcheck v-model="carrier">
+       <RadioItem label="NONE">不限</RadioItem>
+       <RadioItem label="NONE1">不限1</RadioItem>
+       <CheckItem label="MOBILE" @checkChange='checkChange'>移动</CheckItem>
+       <CheckItem label="UNICOM">联通</CheckItem>
+       <CheckItem label="TELCOM">电信</CheckItem>
+     </Mixcheck>
+      {{carrier}}
+        <br>
+        <br>
+      <Mixcheck v-model="carrier1">
+       <RadioItem label="NONE">不限</RadioItem>
+       <CheckItem label="shanxi">山西</CheckItem>
+       <CheckItem label="zhejiang">浙江</CheckItem>
+       <CheckItem label="hainan">海南</CheckItem>
+     </Mixcheck>
     <basicTable :dataSource="dataSource" :columns="columns">
         <template #name="{ record }">{{ record.name }} </template>
         <template #tags="{ record }"> tags: 12{{ record.id }} </template>
@@ -54,6 +72,8 @@
         </div>
     </Modal>
 
+
+
     <Modal  v-model:visible="addOperatorName"
         title="新增业务员账号" @ok="handleOk"
         centered
@@ -69,7 +89,7 @@
 </template>
 <script lang='ts'>
 import {defineComponent, ref} from 'vue'
-import {basicTable} from '../../mycomponent'
+import {basicTable, Mixcheck, CheckItem, RadioItem} from '../../mycomponent'
 import {Switch, Button, Modal, Input, Popconfirm} from 'ant-design-vue'
 import { QuestionCircleOutlined } from '@ant-design/icons-vue';
 const columns = [
@@ -144,6 +164,8 @@ const dataSource = [
 export default defineComponent({
   name: 'details',
   setup(){
+    const carrier = ref(['MOBILE','UNICOM'])
+    const carrier1 = ref('NONE')
     const addOperatorName = ref(false)
     const operatorName = ref()
     const showModal = () => {
@@ -164,7 +186,12 @@ export default defineComponent({
        console.log(rows)
 
     }
+    const checkChange = () => {
+    }
     return {
+      checkChange,
+      carrier,
+      carrier1,
       dataSource,
       columns,
       switchHandler,
@@ -176,7 +203,9 @@ export default defineComponent({
       deleteHanler
     }
   },
-  components: {basicTable, Switch, Button, Modal, Input, Popconfirm, QuestionCircleOutlined}
+  components: {basicTable, Switch, Button, Modal, Input, Popconfirm, QuestionCircleOutlined,
+   Mixcheck, CheckItem, RadioItem
+  }
 })
 </script>
 <style lang="less" scoped>

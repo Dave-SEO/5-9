@@ -1,2 +1,2 @@
-import { basicTable } from './Table'
-export { basicTable }
+export * from './Mixcheck'
+export * from './Table'
